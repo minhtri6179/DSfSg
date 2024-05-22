@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -77,6 +80,21 @@ def post_order(root):
     print(root.value, end=" ")
 
 
+def bfs(root):
+    if not root:
+        return
+    queue = deque([root])
+    while queue:
+        for _ in range(len(queue)):
+            cur_node = queue.popleft()
+            if cur_node:
+                print(cur_node.value, end=" ")
+                queue.append(cur_node.left)
+                queue.append(cur_node.right)
+
+        print()
+
+
 root = Node(20)
 insert(root, 10)
 insert(root, 30)
@@ -96,6 +114,12 @@ print("\nsearching....")
 
 search(root, 26)
 
+print("\n BFS traversal")
+bfs(root)
+
 print("\nTree after remove node 20")
 remove(root, 20)
 in_order(root)
+
+print("\n BFS traversal after remove node 20")
+bfs(root)
