@@ -34,25 +34,22 @@ def find_min(root):
 
 
 def remove(root, value):
-    if root is None:
-        return root
+    if not root:
+        return None
     if root.value < value:
         root.right = remove(root.right, value)
     elif root.value > value:
         root.left = remove(root.left, value)
     else:
-        if root.left is None:
-            tmp = root.right
-            root = None
-            return tmp
-        elif root.right is None:
-            tmp = root.left
-            root = None
-            return tmp
+        if not root.left:
+            return root.left
+        elif not root.right:
+            return root.right
         else:
-            tmp = find_min(root.right)
-            root.value = tmp.value
-            root.right = remove(root.right, tmp.value)
+            min_node = find_min(root.right)
+            root.value = min_node.value
+            root.right = remove(root.right, min_node.value)
+
     return root
 
 
