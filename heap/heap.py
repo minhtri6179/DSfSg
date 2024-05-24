@@ -82,36 +82,41 @@ while not min_heap.is_empty():
     print(min_heap.pop(), end=" ")
 
 
-x = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    100,
-    23,
-    412,
-    123,
-    12,
-    41,
-    23,
-    213,
-    2154,
-    213,
-    213,
-    123,
-    123,
-    123,
-    123,
-    124,
-    215,
-    436,
-    456,
-    546,
-    45654,
-]
-min_heap.heapify(x)
-print()
-while not min_heap.is_empty():
-    print(min_heap.pop(), end=" ")
+class MaxHeap:
+    def __init__(self) -> None:
+        self.h = []
+
+
+# x = [
+#     1,
+#     2,
+#     3,
+#     4,
+#     5,
+#     6,
+#     100,
+#     23,
+#     412,
+#     123,
+#     12,
+#     41,
+#     23,
+#     213,
+#     2154,
+#     213,
+#     213,
+#     123,
+#     123,
+#     123,
+#     123,
+#     124,
+#     215,
+#     436,
+#     456,
+#     546,
+#     45654,
+# ]
+# min_heap.heapify(x)
+# print()
+# while not min_heap.is_empty():
+#     print(min_heap.pop(), end=" ")
