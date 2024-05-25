@@ -51,6 +51,7 @@ class CircleQueue:
 
 q = CircleQueue(5)
 q.en_queue(1)
+x = 100
 q.en_queue(2)
 q.en_queue(3)
 q.de_queue()
