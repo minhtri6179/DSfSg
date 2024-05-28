@@ -16,8 +16,9 @@ class CircleQueueLinkedList:
             self.rear = tmp
             self.front = tmp
         else:
-            self.rear.next = tmp
-            self.rear = self.rear.next
+            if self.rear:
+                self.rear.next = tmp
+                self.rear = self.rear.next
 
         self.size += 1
         return True
@@ -25,8 +26,9 @@ class CircleQueueLinkedList:
     def deQueue(self):
         if self.isEmpty():
             return False
-        tmp = self.front.value
-        self.front = self.front.next
+        if self.front:
+            tmp = self.front.value
+            self.front = self.front.next
         self.size -= 1
         return tmp
 
