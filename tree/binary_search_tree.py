@@ -1,4 +1,6 @@
 from collections import deque
+from bfs import bfs_queue
+from dfs import dfs_pre_order
 
 
 class Node:
@@ -123,3 +125,13 @@ in_order(root)
 
 print("\n BFS traversal after remove node 20")
 bfs(root)
+
+
+print("BFS without using recursion")
+print(bfs_queue(root))
+
+print("\n #########DFS without recursion##########")
+print("Pre-order")
+print(dfs_pre_order(root))
+print("In-order")
+print("Post-order")
