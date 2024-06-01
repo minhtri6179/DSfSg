@@ -1,5 +1,4 @@
-colors = input()
-neededTime = list(map(int, input().split()))
+import random
 
 
 def solve(colors, neededTime):
@@ -7,19 +6,13 @@ def solve(colors, neededTime):
     pre = None
     for i in range(1, len(colors)):
         if colors[i] == colors[i - 1]:
-            if pre:
-                res -= neededTime[pre]
+            j = i - 1
+            max_val = 0
+            while j < len(colors) and colors[j] == colors[i]:
+                max_val = max(max_val, neededTime[j])
+                j += 1
+            res += max_val
 
-            if neededTime[i] < neededTime[i - 1]:
-                res += neededTime[i]
-                pre = i
-            else:
-                res += neededTime[i - 1]
-                pre = i - 1
-        else:
-            pre = None
-    if pre:
-        res += neededTime[pre]
     return res
 
 
